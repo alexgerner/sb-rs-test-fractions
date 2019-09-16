@@ -1,0 +1,69 @@
+﻿The project sb-rs-test-fractions is build by Alexander Gerner on 09/14/2019
+
+Build Environment
+==================
+Spring Tool Suite 3
+Version: 3.9.9.RELEASE
+Build Id: 201906181741
+OS: Windows 10, v.10.0, x86_64 / win32
+Java version: 1.8.0_221
+
+Logs
+=====
+C:\ECLIPSE PROJECTS\STS\sb-rs-test-fractions\logs\*
+
+ApplicationpProperties (potential use)
+=========================
+C:\ECLIPSE PROJECTS\STS\sb-rs-test-fractions\src\main\resources\application.properties
+
+JUnit
+===========
+C:\ECLIPSE PROJECTS\STS\sb-rs-test-fractions\src\test\java\com\gernera\app\suites
+- TestsSuiteInputParameters
+- TestSuiteOperations
+tests: \sb-rs-registartion-validation\src\test\java\com\gernera\app\tests\*
+C:\ECLIPSE PROJECTS\STS\sb-rs-test-fractions\src\test\java\com\gernera\app\tests
+
+Basic Smoke Test Use Cases (Rest Service API)
+===============================================
+add
+===
+request: http://localhost:8080/greeting?numerator1=1&denominator1=4&numerator2=1&denominator2=2&operation=add
+response: {"content":"1/4+1/2=3/4"}
+ 
+subtract
+=========
+request: http://localhost:8080/greeting?numerator1=1&denominator1=2&numerator2=1&denominator2=4&operation=subtract
+
+multiply
+=========
+http://localhost:8080/greeting?numerator1=1&denominator1=2&numerator2=1&denominator2=4&operation=multiply
+response:{"content":"1/2*1/4=1/8"}
+
+divide
+======
+http://localhost:8080/greeting?numerator1=1&denominator1=2&numerator2=1&denominator2=4&operation=divide
+response: {"content":"1/2*1/4=4/2"}
+
+
+equal
+=====
+request: http://localhost:8080/greeting?numerator1=1&denominator1=2&numerator2=1&denominator2=2&operation=equal
+response:{"content":"1/2 == 1/2"}
+
+not equal
+===============
+request:{"content":"1/2=1/2"}:http://localhost:8080/greeting?numerator1=1&denominator1=2&numerator2=1&denominator2=4&operation=equal
+response: {"content":"1/2 != 1/4"}
+
+compare
+========
+>
+request:http://localhost:8080/greeting?numerator1=1&denominator1=2&numerator2=1&denominator2=4&operation=compare
+response: {"content":"1/2>1/4"}
+<
+request:http://localhost:8080/greeting?numerator1=1&denominator1=8&numerator2=1&denominator2=4&operation=compare
+response:{"content":"1/8<1/4"}
+=
+request:http://localhost:8080/greeting?numerator1=1&denominator1=2&numerator2=1&denominator2=2&operation=compare
+response:{"content":"1/2=1/2"}
